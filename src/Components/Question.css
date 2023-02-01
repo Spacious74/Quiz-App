@@ -1,0 +1,24 @@
+.questionContainer{
+    margin: 20px;
+    background-color: #FEFFFE;
+    padding: 20px;
+    border-radius: 10px;
+    border: solid 1px #dce2ee;
+}
+.questionContainer .question{
+    font-size: 1.1rem;
+    margin: 5px 0px;
+    color: black;
+}
+.opt .imoption{
+    margin: 15px 0px;
+    font-size: 1.1rem;
+}
+.questionContainer .radio{
+    width: 20px;
+    height: 20px;
+    display: inline;
+    vertical-align: middle;
+    margin-right: 10px;
+    accent-color: #018698;
+}

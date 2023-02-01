@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Nunito Sans;
+    color: #2d2d31;
+}
+body{
+    background-color: #EAF5F6;
+}
+.Container{
+    max-width: 680px;
+    margin: auto;
+}
+.heading{
+    font-size: 32px;
+    font-weight: bold;
+    background-color: #FEFFFE;
+    padding: 20px;
+    border-radius: 10px;
+    border: solid 1px #dce2ee;
+    position: relative;
+    margin: 20px;
+}
+.heading .line{
+    background-color: #95C8D4;
+    width: 100%;
+    height: 8px;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+}
+.header{
+    max-width: 680px;
+    background: url('https://source.unsplash.com/1600x900/?keyboard');
+    height: 150px;
+    margin: 20px;
+    border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.subBtn{
+    margin: 0px 20px 20px 20px;
+    background-color: #018698;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    width: 100px;
+}
+.subBtn:active{
+    opacity: 0.5;
+}
