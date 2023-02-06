@@ -6,21 +6,24 @@
     color: #2d2d31;
 }
 body{
-    background-color: #EAF5F6;
+    background-color: #fff;
 }
 .Container{
     max-width: 680px;
     margin: auto;
+    margin-top: 100px;
 }
 .heading{
-    font-size: 32px;
+    font-size: 1.8rem;
+    color: #018698;
     font-weight: bold;
     background-color: #FEFFFE;
     padding: 20px;
-    border-radius: 10px;
-    border: solid 1px #dce2ee;
+    border-radius: 15px;
+    border: solid 1px #a5aab3;
     position: relative;
     margin: 20px;
+    overflow: hidden;
 }
 .heading .line{
     background-color: #95C8D4;
@@ -37,7 +40,7 @@ body{
     background: url('https://source.unsplash.com/1600x900/?keyboard');
     height: 150px;
     margin: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -45,12 +48,130 @@ body{
     margin: 0px 20px 20px 20px;
     background-color: #018698;
     border: none;
-    color: white;
+    color: #ffffff;
     padding: 10px 15px;
     font-size: 1.1rem;
-    border-radius: 5px;
-    width: 100px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* width: 180px; */
 }
 .subBtn:active{
     opacity: 0.5;
+}
+.btnContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* position: absolute;
+    bottom: 0%; */
+}
+.submitTest{
+    background-color: #008000;
+  
+}
+.icon{
+    margin-left: 5px;
+}
+.picon{
+    margin-right: 5px;
+    display: inline;
+    vertical-align: middle;
+}
+
+.loadpage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    height: 100vh;
+}
+.tagline{
+    position: absolute;
+    top: 10%;
+    font-size: 1.4rem;
+}
+
+.resultPage{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+}
+.resultPage .resultLine{
+    font-size: 2rem;
+    background-color: #deebee80;
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 20px;
+    border: solid 1px #b2b7c2;
+    z-index: 20;
+    position: absolute;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.resultLine .stars{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: -20px;
+}
+.imstar{
+    color: #ffd700;
+    font-size: 2rem;
+}
+.cgif{
+    position: absolute;
+    top: 0%;
+}
+.playAgain{
+    font-size: 1.4rem;
+    width: 100%;
+    margin-top: 30px;
+}
+.homeBtn{
+    font-size: 1.4rem;
+    width: 100%;
+    margin-top: 0px;
+    background-color: green;
+}
+.resultText{
+    text-align: center;
+    font-size: 1.4rem;
+}
+.score{
+    font-size: 5.5rem;
+    font-weight: bold;
+}
+
+.status{
+    font-size: 1rem;
+    background-color: #FEFFFE;
+    padding: 20px;
+    border-radius: 10px;
+    border: solid 1px #dce2ee;
+    position: relative;
+    margin: 20px;
+}
+
+.status .indexes{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.indexes .index{
+    background-color: #ffffff;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid 1px grey;
+    border-radius: 50%;
 }

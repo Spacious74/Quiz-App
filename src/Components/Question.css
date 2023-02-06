@@ -2,17 +2,20 @@
     margin: 20px;
     background-color: #FEFFFE;
     padding: 20px;
-    border-radius: 10px;
-    border: solid 1px #dce2ee;
+    border-radius: 15px;
+    border: solid 1px #a5aab3;
+    position: relative;
+    height: 300px;
 }
 .questionContainer .question{
-    font-size: 1.1rem;
+    font-size: 1.3rem;
+    font-weight: bold;
     margin: 5px 0px;
     color: black;
 }
 .opt .imoption{
     margin: 15px 0px;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 .questionContainer .radio{
     width: 20px;
@@ -21,4 +24,18 @@
     vertical-align: middle;
     margin-right: 10px;
     accent-color: #018698;
+}
+.clearResponse{
+    color: grey;
+    background-color: #e5eff5;
+    border: none;
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.clearResponse:active{
+    opacity: 0.6;
 }

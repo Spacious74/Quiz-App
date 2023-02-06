@@ -1,12 +1,12 @@
 import './App.css';
-// import Homepage from './HomePage'
-import QuizPage from './QuizPage';
+
+import FirstPage from './Components/FirstPage';
 
 function App() {
+
   return (
    <div>
-      {/* <Homepage /> */}
-      <QuizPage />
+      <FirstPage />
    </div>
   );
 }

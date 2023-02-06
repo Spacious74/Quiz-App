@@ -1,29 +1,39 @@
-import React from 'react';
+// import React, { useState } from 'react';
 import './Question.css'
 
-function Question({sr,question,options}) {
+function Question({deleteResponse,sr,question,options,increaseCounter,selected}) {
 
-  const correctOptions = [];
 
-  function optionSelected(id){
-      // alert("checked" + id);
-      correctOptions.push(id);
-  }
-  console.log("render runs...");
   return (
     <div className='questionContainer'>
         <div className="question">{sr}. {question}</div>
         <div className="options">
             <div className="opt">
-              {
-                options.map((option,index) => (
-                  <div className='imoption'>
-                    <input type="radio" name={"o" + sr} className="radio" id={"i" + (sr+index)}  onChange={()=>{optionSelected(sr+index)}}/>
-                    <label htmlFor={"i"+ (sr+index)} className="answer_option">{option}</label> <br />
-                  </div> 
-                ))
-              }
+
+                <div className='imoption'>
+                    <input type="radio" name={"o" + sr} className="radio" id={"i" + (sr)}  onChange={()=>{increaseCounter("a",sr)}} checked={"a" === selected} />
+                    <label htmlFor={"i"+ (sr)} className="answer_option">{options[0]}</label> <br />
+                </div> 
+
+                <div className='imoption'>
+                    <input type="radio" name={"o" + sr} className="radio" id={"i" + (sr+1)}  onChange={()=>{increaseCounter("b",sr)}} checked={"b" === selected} />
+                    <label htmlFor={"i"+ (sr+1)} className="answer_option">{options[1]}</label> <br />
+                </div> 
+
+                <div className='imoption'>
+                    <input type="radio" name={"o" + sr} className="radio" id={"i" + (sr+2)}  onChange={()=>{increaseCounter("c",sr)}} checked={"c" === selected} />
+                    <label htmlFor={"i"+ (sr+2)} className="answer_option">{options[2]}</label> <br />
+                </div> 
+
+                <div className='imoption'>
+                    <input type="radio" name={"o" + sr} className="radio" id={"i" + (sr+3)}  onChange={()=>{increaseCounter("d",sr)}} checked={"d" === selected} />
+                    <label htmlFor={"i"+ (sr+3)} className="answer_option">{options[3]}</label> <br />
+                </div> 
+                
             </div>
+            <button className="clearResponse" onClick={()=>{deleteResponse(sr)}}>
+                Clear Response
+            </button>
         </div>
     </div>
   )
