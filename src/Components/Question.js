@@ -1,11 +1,19 @@
-// import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import './Question.css'
+import { ThemeContext } from '../App';
+
 
 function Question({deleteResponse,sr,question,options,increaseCounter,selected}) {
 
+    const {light} = useContext(ThemeContext); 
+    const questionStyle = {
+        backgroundColor: light ? "#F5F5F5" : "#252e3a",
+        color : light ? "#1c2b3f" : "#ffffff",
+    }
+
 
   return (
-    <div className='questionContainer'>
+    <div className='questionContainer' style={questionStyle}>
         <div className="question">{sr}. {question}</div>
         <div className="options">
             <div className="opt">

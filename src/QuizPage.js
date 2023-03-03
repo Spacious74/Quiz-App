@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState,useContext } from 'react'
 import Question from './Components/Question'
 // import {data} from './data'
 // import {answer} from './data/answers'
 import loadGif from './images/loading-files.gif'
 import confettiGif from './images/confetti.gif'
 import './QuizPage.css'
+import { ThemeContext } from './App';
 
 function QuizPage({data, answer, name}) {
 
@@ -13,9 +14,20 @@ function QuizPage({data, answer, name}) {
     const [result, setResult] = useState({
         marks : 0,
         render : false,
-        stars : Array(0).fill(1)
+        stars : Array(0).fill(1),
+        starsArr : []
     });
     const [loading, setLoading] = useState(true);
+    const {light} = useContext(ThemeContext); 
+
+    const headStyle = {
+        backgroundColor: light ? "#F5F5F5" : "#252e3a",
+        color : light ? "#1c2b3f" : "#ffffff",
+    }
+    const resultStyle = {
+        backgroundColor: light ? "#F5F5F5" : "#252e3a",
+        color : light ? "#1c2b3f" : "#ffffff",
+    }
 
     // console.log(data[current]);
     function nextQuestion() {
@@ -40,9 +52,9 @@ function QuizPage({data, answer, name}) {
         setSelectedOptions({ ...selectedOptions});
     }
 
+    const stArr = [];
 
-    // let keys = Object.keys(selectedOptions);
-    // console.log(keys);
+
     const makeResult = () => {
 
         let yesOrNo = window.confirm("Are your sure you want to submit ?");
@@ -55,11 +67,17 @@ function QuizPage({data, answer, name}) {
             }
             console.log("Correct answers : ", correct);
             let noOfStars = parseInt(correct/2);
+            for(let i = 0; i < (5-noOfStars); i++) {
+            console.log("Stars Array : ", result.starsArr);
+               stArr.push(<span>&#9733;</span>);
+            }
             setResult({
                 marks : correct,
                 render : true,
-                stars : Array(noOfStars).fill(1)
+                stars : Array(noOfStars).fill(1),
+                starsArr : stArr
             });
+            console.log("Stars Array : ", result.starsArr);
             setTimeout(() => {
                 setLoading(false);
             }, 2000);
@@ -67,7 +85,6 @@ function QuizPage({data, answer, name}) {
             return
         }
     }
-
     const resetEverything = () => {
         setCurrent(0);
         setSelectedOptions({});
@@ -79,9 +96,8 @@ function QuizPage({data, answer, name}) {
     }
 
     return (
-        <div>
+        <div className='quizpageContainer'>
         { result.render ? (
-
 
             <div className="result">
                 {loading ? (
@@ -95,18 +111,25 @@ function QuizPage({data, answer, name}) {
                             <img src={confettiGif} alt="Gif" className='cgif'/>
                             )}
                             
-                            <div className="resultLine">
-                                <div className='resultText'>You scored <br /> <div className="score">{result.marks}/{data.length}</div></div>
+                            <div className="resultLine" style={resultStyle}>
+                                <div className='resultText'>You scored  in {name} quiz.<br /> <div className="score">{result.marks}/{data.length}</div></div>
                                 <div className="stars">
-                                    
                                     {
+                                        
                                         result.stars.map((value) => {
                                             return (<div className='imstar'>
                                                 &#9733;
                                             </div>)
                                         })  
+
                                     }
+                                    { result.starsArr.map((value,index) => {
+                                        return (
+                                            <span key={index}> {value} </span>
+                                        )
+                                    })}
                                 </div>
+                                    
                                 <button className="subBtn playAgain" onClick={()=>{resetEverything()}}><img src="https://img.icons8.com/ios-filled/25/ffffff/recurring-appointment.png" alt="icons" /> &nbsp; Play Again</button>
                                 <button className="subBtn homeBtn" onClick={()=>{window.location.reload()}}><img src="https://img.icons8.com/ios-glyphs/25/ffffff/home-page--v1.png" alt="icons" /> &nbsp; Go to Homepage</button>
                             </div>
@@ -114,31 +137,13 @@ function QuizPage({data, answer, name}) {
                 )}
             </div>
 
-
         ) : (
             <div className='Container'>
 
-            {/* <div className="header"></div> */}
-            <div className="heading">
+            <div className="heading" style={headStyle}>
                 <div className="line"></div>
                 {name} Quiz
             </div>
-
-            {/* <div className="status">
-                <div className="statusLine">Questions Attempted - </div>
-                <div className='indexes'>
-                    {data.map((ques,index) => {
-                        
-                        return (
-                            (Number(keys[index]) === index+1) ? (
-                                <div className='index'>a</div>
-                            ) : (
-                                <div className='index'>{index+1}</div>
-                            )
-                        )
-                    })}
-                </div>
-            </div> */}
 
             <Question deleteResponse={deleteResponse} key={data[current].sr} sr={data[current].sr} question={data[current].question} options={data[current].options} increaseCounter={handleOptionSelection} selected={selectedOptions[current+1]} />
            
